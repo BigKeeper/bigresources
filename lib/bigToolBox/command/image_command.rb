@@ -9,7 +9,7 @@ module BigToolBox
         c.command :detect do |detect|
           detect.action do |global_options, options, args|
             path = File.expand_path(global_options[:path])
-            ImageAnalyzeUtil.get_duplicate_name_file(path, ".png")
+            ImageAnalyzeUtil.get_duplicate_name_file_with_type(path, ".png")
           end
         end
       end

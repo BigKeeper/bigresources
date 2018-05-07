@@ -1,11 +1,11 @@
 
 module BigToolBox
   class FileInfoModel
-    access_attr :file_path, :file_name, :total_count
-    def initialize(file_name,total_count)
+    attr_accessor :file_path, :file_name, :total_count
+    def initialize(file_name)
       @file_path = []
-      @file_name = file_name
       @total_count = 0
+      @file_name = file_name
     end
 
     def add_file_path(file_path)

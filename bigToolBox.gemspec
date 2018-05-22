@@ -38,4 +38,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "plist"
   spec.add_development_dependency "colorize"
   spec.add_development_dependency "rubocop", "~> 0.50.0"
+  spec.add_development_dependency "chunky_png"
 end

@@ -1,5 +1,4 @@
 require 'json'
-require 'bigToolBox/util/image_analyze_util'
 require 'bigToolBox/model/file_type'
 require 'bigToolBox/model/file_model'
 

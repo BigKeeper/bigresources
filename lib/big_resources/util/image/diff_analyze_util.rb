@@ -1,7 +1,7 @@
 require 'chunky_png'
 
-module BigToolBox
-  class AnalyzeUtil
+module BigResources
+  class DifferAnalyzeUtil
     def self.image_diff_analyze(path,compare_path)
 
       images = [

@@ -1,5 +1,5 @@
 
-module BigToolBox
+module BigResources
   FILE = 1
   DIRECTORY = 2
   class TreeHierarchyType

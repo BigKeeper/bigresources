@@ -76,24 +76,34 @@ module BigToolBox
         duplicate
       end
 
+      #根据字节大小相等 分出相同数据
       def self.get_same_file(dic)
         duplicate = []
         dic.keys.select do | file_size |
+          patterns = []
           if dic[file_size][:count] > 1
             dic[file_size][:path].each do | file_path |
-              is_all_same = false
-              dic[file_size][:path].each do | afile_path |
-                  next if file_path.eql?(afile_path)
-                  is_same = AnalyzeUtil.image_diff_analyze(file_path,afile_path)
+              if patterns.count == 0
+                patterns << [file_path]
+                next
+              end
+
+              is_same = false
+              patterns.each do | a_pattern |
+                  is_same = AnalyzeUtil.image_diff_analyze(file_path,a_pattern.first)
                   if is_same
-                    duplicate << {:file_size => file_size,
-                                  :count => dic[file_size][:count],
-                                  :path => dic[file_size][:path]
-                                 }
+                    a_pattern << file_path
+                    break
                   end
               end
+              patterns << [file_path] unless is_same
             end
           end
+          duplicate << {:file_size => file_size,
+                        :count => dic[file_size][:count],
+                        :path => dic[file_size][:path],
+                        :pattern => patterns
+                       }
         end
         duplicate
       end

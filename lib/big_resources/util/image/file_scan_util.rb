@@ -1,10 +1,9 @@
 require 'json'
-require 'bigToolBox/model/file_type'
-require 'bigToolBox/util/image/diff_analyze_util'
+require 'big_resources/model/file_type'
+require 'big_resources/util/image/diff_analyze_util'
 
-module BigToolBox
+module BigResources
   class FileScanUtil
-
     def self.file_with_type(name, type)
       PictureFileType.is_type(name, type)
     end
@@ -90,7 +89,7 @@ module BigToolBox
 
               is_same = false
               patterns.each do | a_pattern |
-                  is_same = AnalyzeUtil.image_diff_analyze(file_path,a_pattern.first)
+                  is_same = DifferAnalyzeUtil.image_diff_analyze(file_path,a_pattern.first)
                   if is_same
                     a_pattern << file_path
                     break

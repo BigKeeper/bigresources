@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "bigToolBox/version"
+require "big_resources/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "bigToolBox"
-  spec.version       = BigToolBox::VERSION
+  spec.name          = "big_resorces"
+  spec.version       = BigResources::VERSION
   spec.authors       = ["Serena_R"]
   spec.email         = ["lirui050716@163.com"]
 
   spec.summary       = %q{A tools collection of iOS projects.}
   spec.description   = %q{A tools collection of iOS projects for iOS developer.}
-  spec.homepage      = "https://github.com/Serena1993/bigToolBox"
+  spec.homepage      = "https://github.com/Serena1993/bigResources"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'

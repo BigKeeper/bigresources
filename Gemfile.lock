@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bigToolBox (0.1.0)
+    big_resorces (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -98,7 +98,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bigToolBox!
+  big_resorces!
   big_stash (~> 0.1)
   bundler (~> 1.16)
   chunky_png

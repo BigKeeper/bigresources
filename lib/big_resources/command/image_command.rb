@@ -1,9 +1,9 @@
-require 'bigToolBox/util/image/name_analyze_util'
-require 'bigToolBox/util/image/diff_analyze_util'
-require 'bigToolBox/util/image/file_scan_util'
-require 'bigToolBox/model/file_type'
+require 'big_resources/util/image/name_analyze_util'
+require 'big_resources/util/image/diff_analyze_util'
+require 'big_resources/util/image/file_scan_util'
+require 'big_resources/model/file_type'
 
-module BigToolBox
+module BigResources
 
   def self.image_resource_command
     desc "Detect image resource"

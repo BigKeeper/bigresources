@@ -1,4 +1,4 @@
-module BigToolBox
+module BigResources
 
   UNKNOWN = -1
   PNG = 1
@@ -18,13 +18,10 @@ module BigToolBox
     end
 
     def self.is_type(file_name,type)
-      p 111
       PictureFileType.each do | type |
         regexStr = "^[\w-]+(\.#{type})$"
         regex = Regex.create(regexStr)
-        p regex
         if regex =~ file_name
-          p type
         end
       end
       # if file_name ~= /.*[.png]$/

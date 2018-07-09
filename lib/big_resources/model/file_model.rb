@@ -1,5 +1,5 @@
 
-module BigToolBox
+module BigResources
   class FileInfoModel
     attr_accessor :file_path, :file_name, :total_count
     def initialize(file_name)

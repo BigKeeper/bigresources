@@ -1,9 +1,9 @@
 require 'json'
-require 'bigToolBox/model/hierarchy_type'
-require 'bigToolBox/model/file_model'
-require 'bigToolBox/util/image/file_scan_util'
+require 'big_resources/model/hierarchy_type'
+require 'big_resources/model/file_model'
+require 'big_resources/util/image/file_scan_util'
 
-module BigToolBox
+module BigResources
   class ImageAnalyzeUtil
     def self.get_duplicate_name_file_with_type(path, file_type)
       file_filter_dic = {}
@@ -31,9 +31,9 @@ module BigToolBox
         FileScanUtil.detect_file_by_size(dic, PictureFileType.type_name(file_type), path, file_filter_dic)
       end
       array = FileScanUtil.get_same_file(file_filter_dic)
-      file = File.new("#{path}/test.txt", 'w')
-      file << array.to_json
-      file.close
+      # file = File.new("#{path}/test.txt", 'w')
+      # file << array.to_json
+      # file.close
       p array
     end
   end

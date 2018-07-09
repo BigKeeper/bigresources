@@ -1,5 +1,7 @@
 require 'bigToolBox/util/image/name_analyze_util'
 require 'bigToolBox/util/image/diff_analyze_util'
+require 'bigToolBox/util/image/file_scan_util'
+require 'bigToolBox/model/file_type'
 
 module BigToolBox
 
@@ -10,20 +12,18 @@ module BigToolBox
         c.command :name do | name |
           name.action do | global_options, options, args |
             path = File.expand_path(global_options[:path])
-            ImageAnalyzeUtil.get_duplicate_name_file_with_type(path, ".png")
+            ImageAnalyzeUtil.get_duplicate_name_file_with_type(path, PNG)
           end
         end
 
-      c.desc "Detect duplicate content image resources."
-      c.command :content do | content |
-        content.action do | global_options, options, args |
-          path = File.expand_path(global_options[:path])
-          #test file name
-          file_path1 = '/Users/serena_rui/Downloads/111/image_close_bapin@4x.png'
-          file_path2 = '/Users/serena_rui/Downloads/111/image_close_bapin@3x.png'
-          AnalyzeUtil.image_diff_analyze(file_path1,file_path1)
+        c.desc "Detect duplicate content image resources."
+        c.command :content do | content |
+          content.action do | global_options, options, args |
+            path = File.expand_path(global_options[:path])
+            ImageAnalyzeUtil.get_duplicate_content_file_with_type(path, PNG)
+          end
         end
-      end
+
     end
   end
 end

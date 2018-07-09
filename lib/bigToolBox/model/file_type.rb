@@ -1,34 +1,59 @@
-
 module BigToolBox
-  FILE = 1
-  DIRECTORY = 2
-  class TreeHierarchyType
-    include Enumerable
-    def each
-      yield 'file'
-      yield 'directory'
-    end
 
-    def self.type(file_name)
-      if file_name == "file"
-        FILE
-      elsif file_name == "directory"
-        DIRECTORY
-      end
-    end
-
-    def self.file_type_name(file_name)
-      if file_name == "file"
-        "file"
-      elsif file_name == "directory"
-        "directory"
-      end
-    end
-  end
+  UNKNOWN = -1
+  PNG = 1
+  PDF = 2
+  JPG = 3
+  JPEG = 4
+  BMP = 5
 
   class PictureFileType
-    PNG = 1
-    PDF = 2
-    UNKNOWN = -1
+    include Enumerable
+    def each
+      yield PNG
+      yield PDF
+      yield JPG
+      yield JPEG
+      yield BMP
+    end
+
+    def self.is_type(file_name,type)
+      p 111
+      PictureFileType.each do | type |
+        regexStr = "^[\w-]+(\.#{type})$"
+        regex = Regex.create(regexStr)
+        p regex
+        if regex =~ file_name
+          p type
+        end
+      end
+      # if file_name ~= /.*[.png]$/
+      #   PNG
+      # elsif file_name  ~= /.*[.pdf]$/
+      #   PDF
+      # elsif file_name  ~= /.*[.png]$/
+      #   JPG
+      # elsif file_name  ~= /$.jpeg/
+      #   JPEG
+      # elsif file_name  ~= /$.bmp/
+      #   BMP
+      # else
+      #   UNKNOWN
+      # end
+    end
+
+    def self.type_name(type)
+      if type == PNG
+        ".png"
+      elsif type == PDF
+        ".pdf"
+      elsif type == JPG
+        ".jpg"
+      elsif type == JPEG
+        ".jpeg"
+      elsif type == BMP
+        ".bmp"
+      end
+    end
   end
 end

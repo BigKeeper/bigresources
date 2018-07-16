@@ -2,8 +2,7 @@ PATH
   remote: .
   specs:
     big_resources (0.1.0)
-      big_stash (~> 0.1)
-      chunky_png (~> 1.3.10)
+      chunky_png
       cocoapods
       colorize
       gli (~> 2.16)
@@ -20,8 +19,6 @@ GEM
       tzinfo (~> 1.1)
     ast (2.4.0)
     atomos (0.1.2)
-    big_stash (0.6.0)
-      gli (~> 2.16)
     chunky_png (1.3.10)
     claide (1.0.2)
     cocoapods (1.5.3)
@@ -105,9 +102,8 @@ PLATFORMS
 
 DEPENDENCIES
   big_resources!
-  big_stash (~> 0.1)
   bundler (~> 1.16)
-  chunky_png (~> 1.3.10)
+  chunky_png
   cocoapods
   colorize
   gli (~> 2.16)

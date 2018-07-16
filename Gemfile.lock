@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    big_resorces (0.1.0)
+    big_resources (0.1.0)
 
 GEM
   remote: https://rubygems.org/
@@ -98,7 +98,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  big_resorces!
+  big_resources!
   big_stash (~> 0.1)
   bundler (~> 1.16)
   chunky_png

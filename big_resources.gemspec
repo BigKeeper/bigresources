@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "big_resources/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "big_resorces"
+  spec.name          = "big_resources"
   spec.version       = BigResources::VERSION
   spec.authors       = ["Serena_R"]
   spec.email         = ["lirui050716@163.com"]

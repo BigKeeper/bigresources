@@ -16,7 +16,7 @@ module BigResources
         FileScanUtil.detect_file_by_name(dic, PictureFileType.type_name(file_type), path, file_filter_dic)
       end
       array = FileScanUtil.get_duplicate_name_file(file_filter_dic)
-      p array.to_json
+      puts JSON.pretty_generate(array)
     end
 
     def self.get_duplicate_content_file_with_type(path, file_type)
@@ -31,10 +31,7 @@ module BigResources
         FileScanUtil.detect_file_by_size(dic, PictureFileType.type_name(file_type), path, file_filter_dic)
       end
       array = FileScanUtil.get_same_file(file_filter_dic)
-      # file = File.new("#{path}/test.txt", 'w')
-      # file << array.to_json
-      # file.close
-      p array
+      puts JSON.pretty_generate(array)
     end
   end
 end

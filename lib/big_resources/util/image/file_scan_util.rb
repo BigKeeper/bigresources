@@ -67,9 +67,9 @@ module BigResources
         duplicate = []
         dic.keys.select do | file_name_key |
           if dic[file_name_key][:count] > 1
-            duplicate << {"file_name" => file_name_key,
-                              "count" => dic[file_name_key][:count],
-                              "path" => dic[file_name_key][:path]}
+            duplicate << {:file_name => file_name_key,
+                              :count => dic[file_name_key][:count],
+                              :path => dic[file_name_key][:path]}
           end
         end
         duplicate

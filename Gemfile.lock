@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    big_resources (0.1.0)
+    big_resources (0.1.1)
       chunky_png
       cocoapods
       colorize
@@ -112,4 +112,4 @@ DEPENDENCIES
   rubocop (~> 0.50.0)
 
 BUNDLED WITH
-   1.16.1
+   1.16.4

@@ -67,9 +67,16 @@ module BigResources
         duplicate = []
         dic.keys.select do | file_name_key |
           if dic[file_name_key][:count] > 1
+            module_arr = []
+            dic[file_name_key][:path].each do | path |
+                module_name = self.get_path_module(path)
+                module_arr << module_name
+            end
+
             duplicate << {:file_name => file_name_key,
                               :count => dic[file_name_key][:count],
-                              :path => dic[file_name_key][:path]}
+                              :path => dic[file_name_key][:path],
+                              :module => module_arr}
           end
         end
         duplicate
@@ -109,6 +116,13 @@ module BigResources
 
     def self.get_current_path(last_path,file_name)
       "#{last_path}/#{file_name}"
+    end
+
+    def self.get_path_module(file_path)
+      path = file_path.split('/Pods/')
+      return 'main' unless path[0] != file_path
+      module_name = path[1].split('/')[0]
+      module_name
     end
   end
 end

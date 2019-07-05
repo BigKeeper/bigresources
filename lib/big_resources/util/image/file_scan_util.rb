@@ -47,11 +47,11 @@ module BigResources
         if dic["contents"] == nil
           if  dic["name"] != nil && dic["name"].include?(file_type)
             file_size = File.size(current_path)
-            if file_size && result_dic["#{file_size} kb"] == nil
-              result_dic["#{file_size} kb"] = {:count => 1, :path => [current_path]}
+            if file_size && result_dic["#{file_size} b"] == nil
+              result_dic["#{file_size} b"] = {:count => 1, :path => [current_path]}
             else
-              result_dic["#{file_size} kb"][:count] += 1
-              result_dic["#{file_size} kb"][:path] << current_path
+              result_dic["#{file_size} b"][:count] += 1
+              result_dic["#{file_size} b"][:path] << current_path
             end
           end
 
@@ -85,8 +85,11 @@ module BigResources
       #根据字节大小相等 分出相同数据
       def self.get_same_file(dic)
         duplicate = []
+        result = []
+        #按字节筛选
         dic.keys.select do | file_size |
           patterns = []
+          #多个文件预筛选
           if dic[file_size][:count] > 1
             dic[file_size][:path].each do | file_path |
               if patterns.count == 0
@@ -95,6 +98,7 @@ module BigResources
               end
 
               is_same = false
+              #和之前分类的图案进行对比
               patterns.each do | a_pattern |
                   is_same = DifferAnalyzeUtil.image_diff_analyze(file_path,a_pattern.first)
                   if is_same
@@ -105,13 +109,22 @@ module BigResources
               patterns << [file_path] unless is_same
             end
           end
-          duplicate << {:file_size => file_size,
-                        :count => dic[file_size][:count],
-                        :path => dic[file_size][:path],
-                        :pattern => patterns
-                       }
+          is_need_output = false;
+          patterns.each do | a_pattern |
+            if a_pattern.count > 1
+              result << {:file_size => file_size,
+                :count => dic[file_size][:count],
+                :path => a_pattern,
+              }
+            end
+          end
+          # duplicate << {:file_size => file_size,
+          #               :count => dic[file_size][:count],
+          #               :path => dic[file_size][:path],
+          #               :pattern => patterns
+          #              }
         end
-        duplicate
+        result
       end
 
     def self.get_current_path(last_path,file_name)

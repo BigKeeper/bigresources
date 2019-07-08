@@ -113,16 +113,11 @@ module BigResources
           patterns.each do | a_pattern |
             if a_pattern.count > 1
               result << {:file_size => file_size,
-                :count => dic[file_size][:count],
+                :count => a_pattern.count,
                 :path => a_pattern,
               }
             end
           end
-          # duplicate << {:file_size => file_size,
-          #               :count => dic[file_size][:count],
-          #               :path => dic[file_size][:path],
-          #               :pattern => patterns
-          #              }
         end
         result
       end
